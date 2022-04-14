@@ -534,5 +534,43 @@ header .mega-menu .links-col i {
 /* Start Testimonials */
 .testimonials {
   padding: 100px 0;
+  background-color: var(--back-color);
+}
+.testimonials .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  gap: 40px;
+}
+.testimonials .box {
+  padding: 20px;
+  background-color: white;
+  position: relative;
+}
+.testimonials .box img {
+  position: absolute;
+  width: 100px;
+  border-radius: 50%;
+  right: -5px;
+  top: -50px;
+  border: 10px solid var(--back-color);
+}
+.testimonials .box .filled {
+  color: gold;
+}
+.testimonials .box h3 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+}
+.testimonials .box h4 {
+  font-weight: normal;
+  color: #777;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+.testimonials .box p {
+  margin-top: 10px;
+  color: #777;
+  line-height: 1.7;
 }
 /* End Testimonials */

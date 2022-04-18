@@ -93,6 +93,32 @@ a {
   transition-delay: 0.5s;
   z-index: 111;
 }
+.spikes {
+  position: relative;
+}
+.spikes::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background-image: linear-gradient(135deg, white 25%, transparent 25%),linear-gradient(225deg,white 25%, transparent 25%);
+  background-size: 30px 40px;
+}
+.dots {
+  position: absolute;
+  background-image: url(../images/dots.png);
+  width: 190px;
+  height: 180px;
+  background-repeat: no-repeat;
+}
+.dots-up {
+  top: 200px;
+  right: 0;
+}
+.dots-down {
+  bottom: 200px;
+  left: 0;
+}
 /* End Component */
 /* Start Header  */
 header {
@@ -862,6 +888,7 @@ header .mega-menu .links-col i {
 /* start Event */
 .event {
   padding: 100px 0;
+  position: relative;
 }
 .event .container {
   display: flex;
@@ -964,6 +991,7 @@ header .mega-menu .links-col i {
 .pricing {
   padding: 100px 0;
   background-color: var(--back-color);
+  position: relative;
 }
 .pricing .container {
   display: grid;
@@ -1136,3 +1164,285 @@ header .mega-menu .links-col i {
   margin: 10px;
 }
 /* End Videos */
+/* Start Stats */
+.stats {
+  padding: 100px 0;
+  text-align: center;
+  background-image: url(../images/stats.jpg);
+  background-size: cover;
+  position: relative;
+}
+.stats::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(255 255 255 / 0.5);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.stats h2 {
+  margin-bottom: 60px;
+  font-size: 2.3rem;
+  position: relative; /* to disappear above overlay */
+}
+.stats .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+}
+@media (max-width: 600px) {
+  .stats h2 {
+    font-size: 2rem;
+  }
+}
+.stats .box {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px 10px;
+  position: relative;
+}
+.stats .box::before,
+.stats .box::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 0;
+  background-color: var(--main-color);
+  transition: 1s;
+}
+.stats .box::before {
+  left: 0;
+  top: 0;
+}
+.stats .box::after {
+  right: 0;
+  bottom: 0;
+}
+.stats .box:hover::before,
+.stats .box:hover::after {
+  height: 100%;
+}
+.stats i {
+  font-size: 1.3rem;
+}
+.stats .box span:first-of-type {
+  display: block;
+  margin: 10px 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.stats .box span:last-of-type {
+  font-size: 1.3rem;
+  color: var(--main-color);
+}
+/* End Stats */
+/* Start Discount */
+.discount {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.discount .info {
+  background-image: url(../images/discount-1.jpg);
+  background-size: cover;
+  flex-basis: 50%;
+  color: white;
+  position: relative;
+  animation: background-change 15s linear infinite;
+}
+@keyframes background-change {
+  0% {
+    background-image: url(../images/discount-1.jpg);
+  }
+  50% {
+    background-image: url(../images/discount-2.jpg);
+  }
+  100% {
+    background-image: url(../images/discount-3.jpg);
+  }
+}
+.discount .info::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(23 134 225 / 0.9);
+}
+.discount .info .content {
+  padding: 30px 20px 0;
+  position: relative;
+  margin-top: 50px;
+}
+@media (max-width: 767px) {
+  .discount .info {
+    flex-basis: 100%;
+  }
+}
+.discount .info h2 {
+  font-size: 2.2rem;
+}
+.discount .info p {
+  line-height: 1.8;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+.discount .info img {
+  max-width: 100%;
+  width: 300px;
+}
+.discount .form {
+  padding: 50px;
+  margin: 0 auto;
+}
+.discount .form h2 {
+  font-size: 2.1rem;
+  letter-spacing: -2px;
+}
+.discount .form input,
+.discount .form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #eee;
+  border: none;
+  border-bottom: 2px solid #ccc;
+}
+.discount .form textarea {
+  resize: none;
+  height: 200px;
+}
+.discount .form input:focus {
+  outline: none;
+}
+.discount .form [type="submit"] {
+  display: block;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--p-color);
+  cursor: pointer;
+  border-bottom: none;
+  transition: 0.6s;
+}
+.discount .form [type="submit"]:hover {
+  transform: scale(1.05);
+}
+/* End Discount */
+/* Start Footer */
+footer {
+  padding: 100px 0 0;
+  background-color: #191919;
+}
+@media (max-width: 767px) {
+  footer {
+    text-align: center;
+  }
+}
+footer .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+}
+footer .text h2 {
+  font-size: 2.7rem;
+  color: white;
+  margin-bottom: 20px;
+}
+footer .text .social a {
+  font-size: 1.3rem;
+  color: var(--back-color);
+  margin-right: 15px;
+  background-color: var(--p-color);
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  transition: 0.5s;
+}
+footer .text .social a:first-child:hover {
+  background-color: #1877f2;
+}
+footer .text .social a:nth-child(2):hover {
+  background-color: #1da1f2;
+}
+footer .text .social a:last-child:hover {
+  background-color: #ff0000;
+}
+footer .text p {
+  font-size: 1rem;
+  color: var(--back-color);
+  line-height: 1.7;
+  margin-top: 20px;
+}
+@media (max-width: 767px) {
+  footer .links a {
+    max-width: 400px;
+    margin: auto;
+  }
+}
+footer .links a {
+  display: block;
+  padding: 20px 5px;
+  color: white;
+  border-bottom: 1px solid #444;
+  position: relative;
+  transition: 0.6s;
+}
+footer .links a::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f101";
+  color: var(--main-color);
+  font-weight: bold;
+  margin-right: 20px;
+  position: relative;
+  top: 1px;
+}
+footer .links a:hover {
+  background-color: #05a8f469;
+}
+footer .info div {
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  color: #b5b5b5;
+}
+footer .info div i {
+  color: var(--main-color);
+  margin-right: 15px;
+  font-size: 1.3rem;
+}
+@media (max-width: 767px) {
+  footer .info div {
+ flex-direction: column;
+  }
+  footer .info div i {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+footer .info div span {
+  line-height: 1.7;
+}
+footer .footer-gallery img {
+  width: 74px;
+  border: 3px solid white;
+  box-shadow: 0 0 5px #ccc;
+  margin: 5px;
+}
+footer .copy-right {
+  text-align: center;
+  padding: 25px 0;
+  margin-top: 50px;
+  color: white;
+  border-top: 1px solid #444;
+}
+/* End Footer */
